@@ -1,0 +1,97 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "xylo"
+        ),
+      ),
+      body: xylop(),
+    ),
+  ));
+}
+class xylop extends StatefulWidget {
+  const xylop({Key? key}) : super(key: key);
+
+  @override
+  State<xylop> createState() => _xylopState();
+}
+
+class _xylopState extends State<xylop> {
+  void change(int n){
+    setState(() {
+      final player = AudioCache();
+      player.play('assets_note$n.wav');
+    });
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Column
+      (
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          flex: 1,
+            child:TextButton(
+              child: Text("first"),
+              style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+              onPressed: (){
+                change(1);
+              },
+
+
+          )),
+        Expanded(
+            flex: 1,
+            child:TextButton(
+              child: Text("second"),
+              style: TextButton.styleFrom(backgroundColor: Colors.green),
+              onPressed: (){
+                change(2);
+              },
+
+
+            )),
+        Expanded(
+            flex: 1,
+            child:TextButton(
+              child: Text("third"),
+              style: TextButton.styleFrom(backgroundColor: Colors.green),
+              onPressed: (){
+                change(3);
+              },
+
+
+            )),
+        Expanded(
+            flex: 1,
+            child:TextButton(
+              child: Text("4th"),
+              style: TextButton.styleFrom(backgroundColor: Colors.green),
+              onPressed: (){
+                change(4);
+              },
+
+
+            )),
+        Expanded(
+            flex: 1,
+            child:TextButton(
+              child: Text("5th"),
+              style: TextButton.styleFrom(backgroundColor: Colors.green),
+              onPressed: (){
+                change(5);
+              },
+
+
+            )),
+      ],
+    );
+  }
+}
+
+
